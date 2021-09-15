@@ -1,13 +1,14 @@
 pragma solidity ^0.5.11;
 
 import "./BaseERC20.sol";
+import "./IChildToken.sol";
 
 /**
  * @title Matic token contract
  * @notice This contract is an ECR20 like wrapper over native ether (matic token) transfers on the matic chain
  * @dev ERC20 methods have been made payable while keeping their method signature same as other ChildERC20s on Matic
  */
-contract MRC20 is BaseERC20 {
+contract MRC20 is BaseERC20, IChildToken {
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     uint256 public currentSupply = 0;
@@ -29,7 +30,15 @@ contract MRC20 is BaseERC20 {
         revert("Disabled feature");
     }
 
-    function deposit(address user, uint256 amount) public onlyOwner {
+    function deposit(address user, bytes calldata depositData)
+        external
+        onlyOwner
+    {
+        uint256 amount = abi.decode(depositData, (uint256));
+        _deposit(user, amount);
+    }
+
+    function _deposit(address user, uint256 amount) internal {
         // check for amount and user
         require(
             amount > 0 && user != address(0x0),
@@ -63,6 +72,12 @@ contract MRC20 is BaseERC20 {
 
         // withdraw event
         emit Withdraw(token, user, amount, input, balanceOf(user));
+        emit Transfer(user, address(0), amount);
+    }
+
+    function withdrawTo(address to, uint256 amount) public payable {
+        withdraw(amount);
+        emit WithdrawTo(to);
     }
 
     function name() public pure returns (string memory) {
