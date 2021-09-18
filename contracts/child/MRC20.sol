@@ -81,11 +81,11 @@ contract MRC20 is BaseERC20, IChildToken {
     }
 
     function name() public pure returns (string memory) {
-        return "Matic Token";
+        return "Btt Token";
     }
 
     function symbol() public pure returns (string memory) {
-        return "MATIC";
+        return "BTT";
     }
 
     function decimals() public pure returns (uint8) {
