@@ -57,8 +57,8 @@ module.exports = {
         )
       },
       network_id: 5,
-      gas: 20000000,
-      gasPrice: 3000000000, // 10 gwei
+      gas: 25000000,
+      gasPrice: 10000000000, // 10 gwei
       skipDryRun: true
     },
     mainnet: {
@@ -102,6 +102,6 @@ module.exports = {
     preamble: 'Matic network contracts'
   },
   api_keys: {
-    etherscan: ETHERSCAN_API_KEY
+    etherscan: 'DXHGSF8RYBU5AUUQ2JKPEPVXPGNEJ3D57B'
   }
 }

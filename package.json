@@ -10,15 +10,17 @@
     "testrpc": "ganache-cli --hardfork istanbul --mnemonic 'clock radar mass judge dismiss just intact mind resemble fringe diary casino' -p 9545 --gasLimit 10000000 --gasPrice 0 --allowUnlimitedContractSize --accounts 200",
     "template:process": "node scripts/process-templates.js",
     "truffle": "truffle",
+    "build": "truffle compile && npm run artifacts && npm run flatten",
     "truffle:test": "truffle test",
     "truffle:coverage": "truffle run coverage",
     "truffle:compile": "truffle compile",
     "truffle:migrate": "scripts/run-migration.sh",
+    "truffle:migrate:2": "truffle migrate --network goerli --f 2 --to 2",
     "truffle:migrate:dev": "truffle migrate --network development",
     "truffle:migrate:dev:bor": "truffle migrate --network bor",
     "truffle:migrate:goerli": "truffle migrate --network goerli",
     "truffle:migrate:goerli:bor": "truffle migrate --network bor",
-    "truffle:verify": "truffle run verify $npm_package_verify_contracts --network ropsten",
+    "truffle:verify": "truffle run verify $npm_package_verify_contracts --network goerli",
     "test": "truffle test",
     "coverage": "scripts/run-coverage.sh",
     "test:ci": "scripts/run-test.sh",
@@ -27,7 +29,8 @@
     "lint": "npm run lint:sol && npm run lint:js",
     "lint:js": "eslint test/**/*.js",
     "lint:sol:fix": "solium -d contracts/ --fix",
-    "lint:sol": "solium -d contracts/"
+    "lint:sol": "solium -d contracts/",
+    "flatten": "node scripts/flatten-contracts.js"
   },
   "pre-commit": [],
   "repository": {
@@ -89,6 +92,7 @@
     "openzeppelin-solidity": "2.2.0",
     "solidity-rlp": "^2.0.0",
     "truffle-hdwallet-provider": "^1.0.17",
-    "truffle-plugin-verify": "^0.3.8"
+    "truffle-plugin-verify": "^0.5.15",
+    "truffle-flattener": "^1.4.4"
   }
 }
