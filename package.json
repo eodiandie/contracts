@@ -16,6 +16,7 @@
     "truffle:compile": "truffle compile",
     "truffle:migrate": "scripts/run-migration.sh",
     "truffle:migrate:2": "truffle migrate --network goerli --f 2 --to 2",
+    "truffle:migrate:7": "truffle migrate --network child --f 7 --to 7",
     "truffle:migrate:dev": "truffle migrate --network development",
     "truffle:migrate:dev:bor": "truffle migrate --network bor",
     "truffle:migrate:goerli": "truffle migrate --network goerli",

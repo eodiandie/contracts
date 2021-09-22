@@ -49,6 +49,19 @@ module.exports = {
         ),
       network_id: '80001',
     },
+    child: {
+      // host: '47.108.217.174',
+      // port: 8545,
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC,
+          'http://39.106.192.110:8545'
+        ),
+      network_id: '*', // match any network
+      skipDryRun: true,
+      gas: 7000000,
+      gasPrice: 10000000000, // 10 gwei
+    },
     goerli: {
       provider: function() {
         return new HDWalletProvider(
