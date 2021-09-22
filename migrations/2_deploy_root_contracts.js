@@ -181,26 +181,26 @@ module.exports = async function(deployer, network, accounts) {
         StakingNFT.address,
         StakingInfo.address,
         ValidatorShareFactory.address,
-        Governance.address,
+        GovernanceProxy.address,
         accounts[0],
         auctionImpl.address
       ).encodeABI()
     )
 
     await updateContractMap(
-      Governance,
+      GovernanceProxy,
       Registry,
       ethUtils.keccak256('validatorShare'),
       ValidatorShare.address
     )
     await updateContractMap(
-      Governance,
+      GovernanceProxy,
       Registry,
       ethUtils.keccak256('stakeManager'),
       StakeManagerProxy.address
     )
     await updateContractMap(
-      Governance,
+      GovernanceProxy,
       Registry,
       ethUtils.keccak256('eventsHub'),
       EventsHubProxy.address
