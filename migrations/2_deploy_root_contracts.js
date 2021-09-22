@@ -96,6 +96,10 @@ module.exports = async function(deployer, network, accounts) {
     // console.log('governance')
     // console.log(governance.address)
     //
+    // const governanceProxy = await GovernanceProxy.at('0xd08622063e4f62E120dc57EF8EB8462422665815')
+    // console.log('governanceProxy')
+    // console.log(GovernanceProxy.address)
+    //
     // const registry = await Registry.at('0xC3B218E236664dDcB94db6F2cD6c7e01B9141D08')
     // console.log('registry')
     // console.log(registry.address)
