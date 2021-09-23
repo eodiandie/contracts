@@ -63,6 +63,10 @@ const contractsToFlatten = [
     fileName: 'GovernanceProxy.sol'
   },
   {
+    path: 'contracts/common/tokens',
+    fileName: 'TestToken.sol'
+  },
+  {
     path: 'contracts/child',
     fileName: 'MRC20.sol'
   }
