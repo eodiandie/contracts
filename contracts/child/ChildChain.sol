@@ -135,37 +135,37 @@ contract ChildChain is Ownable, StateSyncerVerifier, StateReceiver {
         uint256 amountOrTokenId,
         uint256 depositId
     ) internal {
-        // check if deposit happens only once
-        require(deposits[depositId] == false);
-
-        // set deposit flag
-        deposits[depositId] = true;
-
-        // retrieve child tokens
-        address childToken = tokens[rootToken];
-
-        // check if child token is mapped
-        require(childToken != address(0x0));
-
-        ChildToken obj;
-
-        if (isERC721[rootToken]) {
-            obj = ChildERC721(childToken);
-        } else {
-            obj = ChildERC20(childToken);
-        }
-
-        // deposit tokens
-        obj.deposit(user, amountOrTokenId);
-
-        // Emit TokenDeposited event
-        emit TokenDeposited(
-            rootToken,
-            childToken,
-            user,
-            amountOrTokenId,
-            depositId
-        );
+//        // check if deposit happens only once
+//        require(deposits[depositId] == false);
+//
+//        // set deposit flag
+//        deposits[depositId] = true;
+//
+//        // retrieve child tokens
+//        address childToken = tokens[rootToken];
+//
+//        // check if child token is mapped
+//        require(childToken != address(0x0));
+//
+//        ChildToken obj;
+//
+//        if (isERC721[rootToken]) {
+//            obj = ChildERC721(childToken);
+//        } else {
+//            obj = ChildERC20(childToken);
+//        }
+//
+//        // deposit tokens
+//        obj.deposit(user, amountOrTokenId);
+//
+//        // Emit TokenDeposited event
+//        emit TokenDeposited(
+//            rootToken,
+//            childToken,
+//            user,
+//            amountOrTokenId,
+//            depositId
+//        );
     }
 
 }

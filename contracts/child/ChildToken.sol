@@ -44,7 +44,7 @@ contract ChildToken is Ownable, LibTokenTransferOrder {
         address indexed newAddress
     );
 
-    function deposit(address user, uint256 amountOrTokenId) public;
+//    function deposit(address user, uint256 amountOrTokenId) public;
     function withdraw(uint256 amountOrTokenId) public payable;
 
     function ecrecovery(bytes32 hash, bytes memory sig)
