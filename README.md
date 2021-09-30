@@ -1,8 +1,12 @@
-# Matic contracts
+# Bttc contracts
 
-![Build Status](https://github.com/maticnetwork/contracts/workflows/CI/badge.svg)
+TRON & Ethereum & BSC smart contracts that power the Bttc Network. Bttc contracts support multi-chain interoperability, as well as security and ease of use. 
+Currently, it supports cross-chain transfer of assets and messages among TRON, Ethereum, BSC and Btcc, and will be connected to more mainstream blockchains in the future.
+The contract of this project contains functions such as staking and reward.
 
-Ethereum smart contracts that power the [Matic Network](https://matic.network).
+### Dependency
+
+- require node version: v11
 
 ### Install dependencies with
 
@@ -12,48 +16,20 @@ npm install
 
 ### Compile
 
-bor-chain-id for Mainnet = 137
-bor-chain-id for TestnetV4 (Mumbai) = 80001
-
 ```
-npm run template:process -- --bor-chain-id <bor-chain-id>
 npm run truffle:compile
 ```
 
-### Start main chain and side chain
+### Deploy contract
 
-- Start Main chain
+- set the network in `truffle-config.js` 
+- set the private key in `deploy.sh`
+- set the command that you want to executed in `package.json` and `deploy.sh`
+- execute the command: `sh deploy.sh`
 
-```
-npm run testrpc
-```
-
-- Start Matic side chain. Requires docker.
-
-```
-npm run bor:simulate
-```
-
-- If you ran a bor instance before, a dead docker container might still be lying around, clean it with
+### Verifiy contract
 
 ```
-npm run bor:clean
+truffle run verify --network {network} {contractName}@{address}
 ```
 
-- Run a bor (our matic chain node) instance.
-
-### Deploy Contracts
-
-- For local development
-
-```
-npm run truffle:migrate
-```
-
-- For a properly initialized set of contracts, follow the instructions [here](./deploy-migrations/README.md).
-
-### Run tests
-
-```
-npm test
-```
